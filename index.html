@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <button type="button" class="btn btn-light" id="Home">Home</button>
+                        <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-light" id="Data">Data</button>
+                        <!--<a class="nav-link" href="#" >Datos</a>-->
+                    </li>
+                    <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Rank
+                </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Safety</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Distance to NYU Stern School of Business</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Affordability</a>
+                    </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-md-auto">
+                <button class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" id="buttonboro">
+                    Borough
+                </button>
+            </div>  
+        </div>
+        
+        <div class="row"> 
+                    
+            <div class="collapse table-responsive" id="collapseExample">
+               <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>
+                                <button id="Bronx" class="btn btn-light"> The Bronx </button>
+                            </th>                        
+                            <th>
+                                <button id="Brooklyn" class="btn btn-light"> Brooklyn </button>                                
+                            </th>
+                            <th>
+                                <button id="Manhattan" class="btn btn-light"> Manhattan </button>                                
+                            </th>
+                            <th>
+                                <button id="Queens" class="btn btn-light"> Queens </button>                                
+                            </th>
+                            <th>
+                                <button id="Staten Island" class="btn btn-light"> Staten Island </button>                                
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>  
+            </div>                      
+            
+                      
+        </div>  
+        <div class="row">
+            <div class="col-md-auto">
+                <table id="clasificationByAffor">
+                    <thead>
+                        <tr>
+                            <th>Borough</th>
+                            <th>Distric Number</th>
+                        </tr>
+                    </thead>
+                    <tbody id="clasificationBody">
+                        <!-- <tr>
+                            <th>
+                                <select>
+                                    <option selected=""></option>
+                                    <option value="all">All</option>
+                                    <option value="bronx">Bronx</option>
+                                    <option value="brooklyn">Brooklyn</option>
+                                    <option value="manhattan">Manhattan</option>
+                                    <option value="queens">Queens</option>
+                                    <option value="staten island">Staten Island </option>
+                                </select>
+                            </th>
+                            <th>..</th>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>  
+            <div class="col-md-auto">
+                <table id="clasificationByDis">
+                    <thead>
+                        <tr>
+                            <th>Borough</th>
+                            <th>District Number</th>
+                            <th>Distance (meters)</th>
+                        </tr>
+                    </thead>
+                    <tbody>                        
+                    </tbody>
+                </table>
+            </div> 
+            <div class="col-md-auto">
+                <table id="clasificationBySec">
+                    <thead>
+                        <tr>
+                            <th>Borough</th>
+                            <th>Description</th>
+                            <th>Ubication</th>
+                            <th>Date</th>                            
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+
+                </table>
+            </div>
+        </div>    
+        
+        <div class="col-md-auto">
+            <div id="googleMapConteiner"></div>
+        </div>  
+        
+        
+    </div>
+    
+
+
+    <!-- d3 -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- Jquery -->
+    <script  src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script>
+    <!-- popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <!-- custom js-->
+    <script src="index.js"></script>
+    <!-- Google Map --> 
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS9T3dYzhkev8E8jpOwdP2n9TwIO2ffug&libraries=geometry&callback=onGoogleMapResponse">
+    </script>    
+</body>
+</html>
